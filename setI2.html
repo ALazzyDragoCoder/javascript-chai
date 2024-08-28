@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Document</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       <h1>Aman Settime out</h1>
+       <button id="start">Start</button>
+       <button id="stop">Stop</button>
+    </body>
+        
+        <script>
+         let intervalId; // Declare intervalId to keep track of the interval
+
+            const sayDate = function(str){
+                console.log(str, Date.now());
+            }
+
+            document.querySelector('#start').addEventListener('click', function(){
+                // Only start a new interval if one is not already running
+                if (!intervalId) {
+                    intervalId = setInterval(sayDate, 2000, "Hola Amigo");
+                    console.log("Start");
+                }
+            });
+            
+            document.querySelector('#stop').addEventListener('click', function(){
+                // Clear the interval if it exists
+                if (intervalId) {
+                    clearInterval(intervalId);
+                    intervalId = null; // Reset the intervalId to allow starting again
+                    console.log("STOP");
+                }
+            });
+
+        </script>
+   
+</html>
+  
+
